@@ -48,6 +48,20 @@ jobs:
           NEXT_PUBLIC_EMAIL: ranilsonnunes6@gmail.com
           GITHUB_ACTIONS: true
           
+      - name: List build output
+        run: |
+          echo "Listing current directory:"
+          ls -la
+          echo "Checking if out directory exists:"
+          if [ -d "out" ]; then
+            echo "✅ out directory exists"
+            ls -la out/
+          else
+            echo "❌ out directory not found"
+            echo "Looking for other possible output directories:"
+            find . -name "*.html" -o -name "out" -o -name ".next" | head -10
+          fi
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
     skipTrailingSlashRedirect: true,
     basePath: '/portfolio_example',
     assetPrefix: '/portfolio_example/',
+    distDir: 'out',
   }),
   
   // Configurações de performance
@@ -19,32 +20,35 @@ const nextConfig: NextConfig = {
     webVitalsAttribution: ['CLS', 'LCP'],
   },
   
-  // Headers de segurança
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on',
-          },
-        ],
-      },
-    ]
-  },
+  // Desabilitar headers para export estático
+  ...(!(isGitHubPages) && {
+    // Headers de segurança (apenas para modo não-export)
+    async headers() {
+      return [
+        {
+          source: '/(.*)',
+          headers: [
+            {
+              key: 'X-Frame-Options',
+              value: 'DENY',
+            },
+            {
+              key: 'X-Content-Type-Options',
+              value: 'nosniff',
+            },
+            {
+              key: 'Referrer-Policy',
+              value: 'strict-origin-when-cross-origin',
+            },
+            {
+              key: 'X-DNS-Prefetch-Control',
+              value: 'on',
+            },
+          ],
+        },
+      ]
+    },
+  }),
 
   // Configuração de imagens para export estático
   images: {
