@@ -4,11 +4,13 @@ const isProd = process.env.NODE_ENV === 'production'
 const isGitHubActions = process.env.GITHUB_ACTIONS === 'true'
 
 const nextConfig: NextConfig = {
-  // Output estático para GitHub Pages
-  ...(isGitHubActions && {
-    output: 'export',
-    trailingSlash: true,
-    skipTrailingSlashRedirect: true,
+  // Always export in production for GitHub Pages
+  output: isProd ? 'export' : undefined,
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
+  
+  // GitHub Pages specific configuration
+  ...(isProd && {
     basePath: '/portfolio_example',
     assetPrefix: '/portfolio_example/',
     distDir: 'out',
@@ -21,7 +23,7 @@ const nextConfig: NextConfig = {
   },
   
   // Headers de segurança (apenas para modo não-export)
-  ...(!isGitHubActions && {
+  ...(!isProd && {
     async headers() {
       return [
         {
@@ -51,7 +53,7 @@ const nextConfig: NextConfig = {
 
   // Configuração de imagens para export estático
   images: {
-    unoptimized: !!isGitHubActions,
+    unoptimized: isProd,
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
