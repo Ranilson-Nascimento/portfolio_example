@@ -29,12 +29,20 @@ jobs:
           cache: 'npm'
           
       - name: Install dependencies
-        run: npm ci
-        
+        run: |
+          npm ci
+          npm list --depth=0
+          
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
           static_site_generator: next
+          
+      - name: Debug - Environment variables
+        run: |
+          echo "GITHUB_ACTIONS: $GITHUB_ACTIONS"
+          echo "NODE_ENV: $NODE_ENV"
+          echo "Current directory: $(pwd)"
           
       - name: Build Next.js
         run: npm run build:github
@@ -44,6 +52,15 @@ jobs:
           NEXT_PUBLIC_EMAIL: ranilsonnunes6@gmail.com
           GITHUB_ACTIONS: true
           NODE_ENV: production
+          
+      - name: Debug - List files after build
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Files in current directory:"
+          ls -la
+          echo "Checking for out directory:"
+          ls -la out/ || echo "out directory does not exist"
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
