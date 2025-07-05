@@ -7,6 +7,18 @@ Um template moderno e responsivo para portfolio de desenvolvedores, construído 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.1-38B2AC)](https://tailwindcss.com/)
 
+## 🚀 Demo ao Vivo
+
+**🔗 Acesse o site**: [https://ranilson-nascimento.github.io/portfolio_example](https://ranilson-nascimento.github.io/portfolio_example)
+
+> ✅ **Status**: Site funcionando perfeitamente no GitHub Pages!
+> 
+> 📱 **Responsivo**: Testado em desktop, tablet e mobile  
+> 🌙 **Tema**: Modo claro/escuro disponível  
+> ⚡ **Performance**: Carregamento otimizado  
+
+---
+
 ## Sobre o Projeto
 
 Este é um template completo para portfolio profissional, desenvolvido para apresentar projetos, habilidades e experiência de desenvolvedores. O projeto foi construído com foco em performance, SEO e experiência do usuário.
@@ -40,8 +52,8 @@ Este é um template completo para portfolio profissional, desenvolvido para apre
 - **TypeScript** - Type checking
 
 ### Deploy
-- **Vercel** - Deploy e hospedagem
-- **GitHub Actions** - CI/CD pipeline
+- **GitHub Pages** - Deploy automático via GitHub Actions  
+- **Vercel** - Deploy alternativo para desenvolvimento
 
 ## Início Rápido
 
@@ -128,7 +140,30 @@ export const siteConfig = {
 - **Fontes**: Configure em `src/app/layout.tsx`
 - **Componentes**: Personalize em `src/components/ui/`
 
-## Deploy na Vercel
+## Deploy
+
+### GitHub Pages (Recomendado)
+
+Este template está configurado para deploy automático no GitHub Pages usando GitHub Actions.
+
+**🔗 Site em produção**: [https://ranilson-nascimento.github.io/portfolio_example](https://ranilson-nascimento.github.io/portfolio_example)
+
+#### Como configurar:
+
+1. **Fork este repositório**
+2. **Ative o GitHub Pages**:
+   - Vá em `Settings` → `Pages`
+   - Em `Source`, selecione `GitHub Actions`
+3. **Faça qualquer commit** - O deploy acontece automaticamente!
+
+#### Características do deploy:
+- ✅ Build automático via GitHub Actions
+- ✅ Deploy em segundos após o commit
+- ✅ HTTPS automático
+- ✅ CDN global do GitHub
+- ✅ Sem custos adicionais
+
+### Deploy na Vercel
 
 ### Deploy Automático
 
@@ -155,6 +190,20 @@ NEXT_PUBLIC_SITE_NAME=Seu Nome - Portfolio
 NEXT_PUBLIC_EMAIL=seu@email.com
 # ... outras variáveis
 ```
+
+## 📊 Status do Projeto
+
+| Funcionalidade | Status | Descrição |
+|----------------|--------|-----------|
+| 🚀 **Deploy** | ✅ Ativo | Site rodando no GitHub Pages |
+| 📱 **Responsivo** | ✅ Completo | Desktop, tablet e mobile |
+| 🌙 **Modo Escuro** | ✅ Implementado | Troca de tema funcional |
+| ⚡ **Performance** | ✅ Otimizado | Next.js 15 + export estático |
+| 🔍 **SEO** | ✅ Configurado | Metadata completa |
+| ♿ **Acessibilidade** | ✅ WCAG | Componentes acessíveis |
+| 🔒 **PWA** | ✅ Ativo | App instalável |
+
+---
 
 ## Funcionalidades Implementadas
 
