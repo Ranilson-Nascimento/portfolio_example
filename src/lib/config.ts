@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Ranilson Nascimento",
   description: "Desenvolvedor Full Stack especializado em React, Next.js e Node.js. Criando soluções digitais modernas e eficientes.",
-  url: "https://portfolio-example.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://ranilson-nascimento.github.io/portfolio_example",
   ogImage: "/og-image.png",
   creator: "Ranilson Nascimento",
   keywords: [

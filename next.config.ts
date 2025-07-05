@@ -1,6 +1,18 @@
 import type { NextConfig } from 'next'
 
+const isProd = process.env.NODE_ENV === 'production'
+const isGitHubPages = process.env.GITHUB_ACTIONS
+
 const nextConfig: NextConfig = {
+  // GitHub Pages configuration
+  ...(isGitHubPages && {
+    output: 'export',
+    trailingSlash: true,
+    skipTrailingSlashRedirect: true,
+    basePath: '/portfolio_example',
+    assetPrefix: '/portfolio_example/',
+  }),
+  
   // Configurações de performance
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
@@ -34,8 +46,9 @@ const nextConfig: NextConfig = {
     ]
   },
 
-  // Configuração de imagens
+  // Configuração de imagens para export estático
   images: {
+    unoptimized: !!isGitHubPages,
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

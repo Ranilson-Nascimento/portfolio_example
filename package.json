@@ -36,6 +36,7 @@
     "dev": "next dev -p 3000",
     "dev:turbo": "next dev --turbo -p 3000",
     "build": "next build",
+    "build:github": "cross-env GITHUB_ACTIONS=true next build",
     "start": "next start",
     "preview": "npm run build && npm run start",
     "lint": "next lint",
